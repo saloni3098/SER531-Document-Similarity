@@ -1,0 +1,43 @@
+String query3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+				+ "PREFIX ds: <http://www.semanticweb.org/haritej/ontologies/2021/11/untitled-ontology-28#>\n"
+				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n"
+				+ "\n"
+				+ "SELECT ?DOI ?TITLE\n"
+				+ "WHERE {\n"
+				+ "  ?temp1 rdf:type ds:Data;\n"
+				+ "        ds:hasTitleValue ?TITLE;\n"
+				+ "        ds:hasIDValue ?DOI;\n"
+				+ "		ds:hasIDValue \""+s+"\".}";
+			load.loadHumanClasses(serviceEndPoint, strQuery);
+		}
+
+
+		String query2 =  "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+		+ "PREFIX ds: <http://www.semanticweb.org/haritej/ontologies/2021/11/untitled-ontology-28#>\n"
+		+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
+		+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+		+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n"
+		+ "\n"
+		+ "SELECT ?DOI\n"
+		+ "WHERE {\n"
+		+ "?name rdf:type ds:Author;\n"
+		+ "     ds:hasIDValue ?ID;\n"
+		+ "		ds:hasNameValue \""+authorname+"\".}";
+        
+        
+        String query3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+				+ "PREFIX ds: <http://www.semanticweb.org/haritej/ontologies/2021/11/untitled-ontology-28#>\n"
+				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
+				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n"
+				+ "\n"
+				+ "SELECT ?DOI ?TITLE\n"
+				+ "WHERE {\n"
+				+ "?person rdf:type ds:Author;\n"
+				+ "        ds:hasNameValue \""+authorname+"\";\n"
+				+ "        ds:hasID ?id;\n"
+				+ "		ds:hasTitle ?title.\n"
+				+ " ?id ds:hasIDValue ?DOI.\n"
+				+ " ?id ds:hasTitleValue ?TITLE.}";
